@@ -1,7 +1,9 @@
-[gd_scene load_steps=46 format=3 uid="uid://xpdr741qjqi3"]
+[gd_scene load_steps=50 format=3 uid="uid://xpdr741qjqi3"]
 
-[ext_resource type="Texture2D" uid="uid://dj23teto1ee7g" path="res://Assets/tilesheet_complete_2X.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cr7bvpcpu41nq" path="res://Assets/tilesheet_complete_2X.png" id="1"]
 [ext_resource type="Script" path="res://Camera.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://onhcs6fkf8eg" path="res://Assets/coin.png" id="4_emfbv"]
+[ext_resource type="Script" path="res://Coins.gd" id="5_q1l7y"]
 [ext_resource type="Script" path="res://StateMachine/Player_Container.gd" id="12"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c34oo"]
@@ -491,6 +493,20 @@ sources/3 = SubResource("TileSetAtlasSource_c6oma")
 sources/4 = SubResource("TileSetAtlasSource_5dpi4")
 sources/5 = SubResource("TileSetAtlasSource_uf32r")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ot0jy"]
+texture = ExtResource("4_emfbv")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_s7qo4"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 8
+sources/0 = SubResource("TileSetAtlasSource_ot0jy")
+
 [node name="Game" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
@@ -519,3 +535,40 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 script = ExtResource("2")
+
+[node name="Coins" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_s7qo4")
+format = 2
+layer_0/tile_data = PackedInt32Array(196610, 0, 0, -131063, 0, 0, 65555, 0, 0, 262168, 0, 0, 262169, 0, 0, 262170, 0, 0, 262171, 0, 0, 458766, 0, 0, -196583, 0, 0, 393246, 0, 0, 16, 0, 0, -393191, 0, 0, -589799, 0, 0)
+script = ExtResource("5_q1l7y")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = 1112.0
+offset_bottom = 40.0
+grow_horizontal = 0
+color = Color(0, 0, 0, 0.439216)
+
+[node name="Label" type="Label" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -400.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "Coins: 0"
