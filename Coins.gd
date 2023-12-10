@@ -21,3 +21,5 @@ func get_coins(p):
 			which_coin = c
 	if which_coin != Vector2.ZERO:
 		call_deferred("set_cell", 0, which_coin, -1)
+		
+

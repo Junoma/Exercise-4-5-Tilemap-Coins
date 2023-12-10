@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var SM = $StateMachine
 
+
 var jump_power = Vector2.ZERO
 var direction = 1
 
@@ -24,6 +25,9 @@ var should_direction_flip = true # wether or not player controls (left/right) ca
 
 func _physics_process(_delta):
 	velocity.x = clamp(velocity.x,-max_move,max_move)
+	
+
+
 		
 	if should_direction_flip:
 		if direction < 0 and not $AnimatedSprite2D.flip_h: $AnimatedSprite2D.flip_h = true
@@ -51,11 +55,23 @@ func set_animation(anim):
 	if $AnimatedSprite2D.sprite_frames.has_animation(anim): $AnimatedSprite2D.play(anim)
 	else: $AnimatedSprite2D.play()
 
+
+
+	if position.y > Global.death_zone:
+		queue_free()
 func die():
 	queue_free()
 
-
-
-func _on_Coin_Collector_body_entered(body):
+func _on_coin_collector_body_entered(body):
 	if body.name == "Coins":
 		body.get_coins(global_position)
+#		body.queue_free()
+		var Coins = get_node_or_null("/root/Global")
+		Coins.add_coins() 
+
+
+func _on_area_2d_2_body_entered(body):
+	body.get_coins(global_position)
+	pass # Replace with function body.
+
+

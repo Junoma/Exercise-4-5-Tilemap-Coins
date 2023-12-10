@@ -1,66 +1,59 @@
-[gd_scene load_steps=26 format=3 uid="uid://dvwf2pbeavc18"]
+[gd_scene load_steps=25 format=3 uid="uid://dvwf2pbeavc18"]
 
-[ext_resource type="Texture2D" uid="uid://dqnvoewtlfq2f" path="res://Assets/player.png" id="1"]
 [ext_resource type="Script" path="res://StateMachine/Jumping.gd" id="2"]
 [ext_resource type="Script" path="res://StateMachine/Moving.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://cs36u0t1j08u1" path="res://Assets/player (1).png" id="3_3d64o"]
 [ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="4"]
 [ext_resource type="Script" path="res://StateMachine/Coyote.gd" id="5"]
 [ext_resource type="Script" path="res://StateMachine/Idle.gd" id="6"]
 [ext_resource type="Script" path="res://StateMachine/Falling.gd" id="7"]
 [ext_resource type="Script" path="res://StateMachine/Moving_and_Jumping.gd" id="8"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="9"]
+[ext_resource type="Script" path="res://Player/Camera.gd" id="10_yurax"]
 
-[sub_resource type="AtlasTexture" id="11"]
-atlas = ExtResource("1")
-region = Rect2(224, 70, 32, 70)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg03s"]
+atlas = ExtResource("3_3d64o")
+region = Rect2(552, 0, 552, 1662)
 
-[sub_resource type="AtlasTexture" id="12"]
-atlas = ExtResource("1")
-region = Rect2(256, 70, 32, 70)
+[sub_resource type="AtlasTexture" id="AtlasTexture_omsp2"]
+atlas = ExtResource("3_3d64o")
+region = Rect2(2280, 0, 760, 1330)
 
-[sub_resource type="AtlasTexture" id="13"]
-atlas = ExtResource("1")
-region = Rect2(288, 70, 32, 70)
+[sub_resource type="AtlasTexture" id="AtlasTexture_saqdt"]
+atlas = ExtResource("3_3d64o")
+region = Rect2(552, 0, 552, 1330)
 
-[sub_resource type="AtlasTexture" id="1"]
-atlas = ExtResource("1")
-region = Rect2(0, 0, 32, 70)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcau7"]
+atlas = ExtResource("3_3d64o")
+region = Rect2(0, 0, 552, 1662)
 
-[sub_resource type="AtlasTexture" id="8"]
-atlas = ExtResource("1")
-region = Rect2(224, 0, 32, 70)
+[sub_resource type="AtlasTexture" id="AtlasTexture_faijq"]
+atlas = ExtResource("3_3d64o")
+region = Rect2(0, 0, 552, 1662)
 
-[sub_resource type="AtlasTexture" id="9"]
-atlas = ExtResource("1")
-region = Rect2(256, 0, 32, 70)
+[sub_resource type="AtlasTexture" id="AtlasTexture_txspb"]
+atlas = ExtResource("3_3d64o")
+region = Rect2(552, 0, 552, 1662)
 
-[sub_resource type="AtlasTexture" id="10"]
-atlas = ExtResource("1")
-region = Rect2(288, 0, 32, 70)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rl3uy"]
+atlas = ExtResource("3_3d64o")
+region = Rect2(552, 0, 552, 1330)
 
-[sub_resource type="AtlasTexture" id="2"]
-atlas = ExtResource("1")
-region = Rect2(32, 0, 32, 70)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4457v"]
+atlas = ExtResource("3_3d64o")
+region = Rect2(2280, 0, 760, 1330)
 
-[sub_resource type="AtlasTexture" id="3"]
-atlas = ExtResource("1")
-region = Rect2(64, 0, 32, 70)
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4gjg"]
+atlas = ExtResource("3_3d64o")
+region = Rect2(552, 0, 552, 1330)
 
-[sub_resource type="AtlasTexture" id="4"]
-atlas = ExtResource("1")
-region = Rect2(96, 0, 32, 70)
+[sub_resource type="AtlasTexture" id="AtlasTexture_safxu"]
+atlas = ExtResource("3_3d64o")
+region = Rect2(1104, 0, 552, 1330)
 
-[sub_resource type="AtlasTexture" id="5"]
-atlas = ExtResource("1")
-region = Rect2(128, 0, 32, 70)
-
-[sub_resource type="AtlasTexture" id="6"]
-atlas = ExtResource("1")
-region = Rect2(160, 0, 32, 70)
-
-[sub_resource type="AtlasTexture" id="7"]
-atlas = ExtResource("1")
-region = Rect2(192, 0, 32, 70)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yiyqd"]
+atlas = ExtResource("3_3d64o")
+region = Rect2(1696, 0, 547, 1330)
 
 [sub_resource type="SpriteFrames" id="15"]
 animations = [{
@@ -71,13 +64,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("11")
+"texture": SubResource("AtlasTexture_sg03s")
 }, {
 "duration": 1.0,
-"texture": SubResource("12")
+"texture": SubResource("AtlasTexture_omsp2")
 }, {
 "duration": 1.0,
-"texture": SubResource("13")
+"texture": SubResource("AtlasTexture_saqdt")
 }],
 "loop": false,
 "name": &"Falling",
@@ -85,7 +78,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("1")
+"texture": SubResource("AtlasTexture_wcau7")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_faijq")
 }],
 "loop": true,
 "name": &"Idle",
@@ -93,13 +89,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("8")
+"texture": SubResource("AtlasTexture_txspb")
 }, {
 "duration": 1.0,
-"texture": SubResource("9")
-}, {
-"duration": 1.0,
-"texture": SubResource("10")
+"texture": SubResource("AtlasTexture_rl3uy")
 }],
 "loop": false,
 "name": &"Jumping",
@@ -107,22 +100,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("2")
+"texture": SubResource("AtlasTexture_4457v")
 }, {
 "duration": 1.0,
-"texture": SubResource("3")
+"texture": SubResource("AtlasTexture_v4gjg")
 }, {
 "duration": 1.0,
-"texture": SubResource("4")
+"texture": SubResource("AtlasTexture_safxu")
 }, {
 "duration": 1.0,
-"texture": SubResource("5")
-}, {
-"duration": 1.0,
-"texture": SubResource("6")
-}, {
-"duration": 1.0,
-"texture": SubResource("7")
+"texture": SubResource("AtlasTexture_yiyqd")
 }],
 "loop": true,
 "name": &"Moving",
@@ -141,9 +128,10 @@ position = Vector2(200, 200)
 script = ExtResource("9")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4, 4)
+position = Vector2(-25, 25)
+scale = Vector2(0.218895, 0.20866)
 sprite_frames = SubResource("15")
-animation = &"Idle"
+animation = &"Moving"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 23.5)
@@ -181,6 +169,10 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coin_Collector"]
 position = Vector2(-3, 34)
 shape = SubResource("CapsuleShape2D_pwshm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+script = ExtResource("10_yurax")
 
 [connection signal="timeout" from="StateMachine/Coyote/Timer" to="StateMachine/Coyote" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Coin_Collector" to="." method="_on_coin_collector_body_entered"]

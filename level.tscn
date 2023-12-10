@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqut7g6y62l1"]
+
+[ext_resource type="Texture2D" uid="uid://b4lvk54p7wadq" path="res://Assets/Eagle_O (colorize project) copy.png" id="1_p0l24"]
+[ext_resource type="PackedScene" uid="uid://dvwf2pbeavc18" path="res://Player/Player.tscn" id="2_4g3w5"]
+[ext_resource type="AudioStream" uid="uid://gfllw1njpnfy" path="res://Assets/Trolley Problem.mp3" id="3_q70rg"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(600, 100)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_p0l24")
+
+[node name="Player" parent="." instance=ExtResource("2_4g3w5")]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_q70rg")
+autoplay = true
+
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
