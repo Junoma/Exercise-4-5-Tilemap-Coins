@@ -27,3 +27,5 @@ None in particular.
 ## Created by 
 
 Penelope Watson
+
+git remote set-url origin Moose on the Loose
